@@ -1,3 +1,48 @@
 body {
-    background-color: darkred;
+    background-color: lightcoral;
+}
+#Überschrift1 {
+    background-color: ghostwhite;
+    color: lightcoral;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 50px;
+    padding: 20px;
+}
+
+.div {
+    background-color: lightpink;
+    color: white;
+    
+    width: 400px;
+    padding: 10px 10px 50px 10px;
+    border: 5px solid white;
+    margin: 10px 10px 50px 10px;
+}
+
+#Beschreibung {
+    background-color: white;
+    color: lightcoral;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+}
+#TextDigitaleZeichnungen
+{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+.Texte {
+    color: ghostwhite;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.Links {
+color: ghostwhite;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-style: bold;
 }
