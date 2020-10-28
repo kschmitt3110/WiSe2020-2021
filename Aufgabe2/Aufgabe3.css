@@ -1,6 +1,20 @@
 body {
     background-color: lightcoral;
 }
+
+@media screen and (min-width:1024px){
+    body {
+        background-color: lightblue;
+    }
+}
+
+@media screen and (max-width: 600px){
+    body {
+        background-color: lightslategrey;
+    }
+
+}
+
 #Überschrift1 {
     background-color: ghostwhite;
     color: lightcoral;
@@ -11,12 +25,12 @@ body {
     padding: 20px;
 }
 
-.div {
-    background-color: lightpink;
-    color: white;
+#box {
+    background-color: lightcoral;
+    color: ghostwhite;
     
     width: 400px;
-    padding: 10px 10px 50px 10px;
+    padding: 10px 10px 30px 10px;
     border: 5px solid white;
     margin: 10px 10px 50px 10px;
 }
