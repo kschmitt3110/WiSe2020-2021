@@ -1,20 +1,34 @@
+:root {
+    text-align: center;
+}
+ 
 body {
     background-color: lightcoral;
+    text-align: center;
 }
-
-@media screen and (min-width:1024px){
+ 
+@media screen and (min-width:1024px) {
     body {
         background-color: lightblue;
     }
 }
-
-@media screen and (max-width: 600px){
+ 
+@media screen and (max-width: 600px) {
     body {
-        background-color: lightslategrey;
+        background-color: darkcyan;
     }
-
+ 
+    object,
+    video {
+        width: 90%;
+    }
+ 
+    object {
+        max-height: 40em;
+    }
+ 
 }
-
+ 
 #Überschrift1 {
     background-color: ghostwhite;
     color: lightcoral;
@@ -24,39 +38,118 @@ body {
     font-size: 50px;
     padding: 20px;
 }
-
-#box {
+ 
+body > div > h1 {
     background-color: lightcoral;
     color: ghostwhite;
-    
-    width: 400px;
     padding: 10px 10px 30px 10px;
     border: 5px solid white;
     margin: 10px 10px 50px 10px;
 }
-
-#Beschreibung {
+ 
+body > p:nth-child(2) {
     background-color: white;
     color: lightcoral;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
     font-style: normal;
 }
-#TextDigitaleZeichnungen
-{
-    color: white;
+ 
+br + p {
+    color: cornflowerblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
 }
+
+#Beispielbox {
+    background-color: lightcoral;
+    color: lightblue;
+    text-align: center;
+
+    width: 400px; 
+    padding: 10px 10px 10px 10px;
+    border: 5px solid white;
+    margin: 10px 100px 10px 40px;
+
+}
+ 
 .Texte {
     color: ghostwhite;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     font-weight: 100;
 }
-
+ 
 .Links {
-color: ghostwhite;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-font-style: bold;
+    color: ghostwhite;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: bold;
+}
+ 
+a:hover {
+    text-decoration: underline;
+    font-style: italic;
+    color: cadetblue;
+}
+ 
+a:visited {
+    color: blueviolet;
+}
+ 
+a[href*="contact"] {
+    color: crimson;
+}
+ 
+img {
+    transition: border-width 0.4s;
+}
+ 
+ 
+ 
+img:first-of-type {
+    border: 5px solid cadetblue;
+}
+ 
+img ~ img {
+    border: 5px solid salmon;
+}
+ 
+img:nth-of-type(2) {
+    border: 5px solid goldenrod;
+}
+ 
+img:hover {
+    border-width: 15px;
+}
+ 
+object {
+    border: 5px solid goldenrod;
+
+}
+
+.flexbox{
+    width: 100%;
+    background: lightblue; 
+    flex-direction: column;
+    flex-wrap: wrap;  
+}
+.box1{
+    background:white;
+    border-radius: 2em;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+.box2{
+    background:white;
+    border-radius: 2em;
+    margin-top: 2%;
+    margin-bottom: 2%;
+ 
+}
+.box3{
+    background:white;
+    border-radius: 2em;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
