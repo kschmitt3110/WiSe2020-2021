@@ -40,6 +40,11 @@ br + p {
     display: block;
     font-size: large;
 }
+
+#TextDigitaleZeichnungen {
+    color: white; 
+    font font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
  
  
  
