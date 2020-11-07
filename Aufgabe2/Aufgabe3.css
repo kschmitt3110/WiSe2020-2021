@@ -12,9 +12,50 @@ body {
 body > div.header > div > h1 {
     background-color: #26de81;
     padding: 10px 10px 30px 10px;
-    border: 5px solid white;
-    margin: 10px 10px 50px 10px;
+    margin: 10px 10px 0 10px;
 }
+
+#navBar {
+    position: sticky;
+    top: 0;
+    background-color: azure;
+    margin: 00px 10px 10px 10px;
+    padding: 10px 10px 10px 10px
+}
+
+#navBar a {
+    color: #2d98da;
+    margin-top: 0em;
+    background-color: azure;
+    font-size: large;
+    
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 50px;
+}
+
+#navBar a:hover {
+    color: white;
+    background-color: salmon;
+    padding: 10px 10px 10px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#navBar #home {
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+#navBar #toTop {
+    float: right;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+
+
  
 body > p:nth-child(2) {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -40,11 +81,6 @@ br + p {
     display: block;
     font-size: large;
 }
-
-#TextDigitaleZeichnungen {
-    color: white; 
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
  
  
  
@@ -58,7 +94,7 @@ br + p {
 .Links {
     color: ghostwhite;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: bold;
+    font-weight: bold;
 }
  
 a:hover {
@@ -75,13 +111,7 @@ a[href*="contact"] {
     color: #a55eea;
 }
  
-nav a {
-    color: #2d98da;
-    border: 5px solid white;
-    margin-top: 0em;
-    background-color: azure;
-    font-size: large;
-}
+
  
 img {
     transition: border-width 0.4s;
@@ -108,6 +138,20 @@ img:hover {
 object {
     border: 5px solid #fed330;
  
+}
+
+#PDF_QuoteBoundingBox{
+    width: 100%;
+}
+
+#PDF_QuoteBoundingBox #PDFviewer{
+    width: 100%;
+}
+
+#PDF_QuoteBoundingBox #quote{
+    font-family: 'Brush Script MT', 'Arial Narrow', ARial, sans-serif;
+    padding: 50px;
+    font-size: 50px;
 }
  
 .flexbox {
@@ -150,6 +194,27 @@ object {
     body {
         background-color: white;
     }
+
+    #PDF_QuoteBoundingBox{
+        width: 100%;
+        display: flex;
+    }
+    
+    #PDF_QuoteBoundingBox #PDFviewer{
+        width: 66%;
+        float: left;
+    }
+    
+    #PDF_QuoteBoundingBox #quote{
+        width: 33%;
+        float:right;
+        padding: 20px;
+        margin-right: 2%;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-family: 'Brush Script MT', 'Arial Narrow', ARial, sans-serif;
+        font-size: 60px;
+    }
 }
  
 @media screen and (max-width: 600px) {
@@ -164,5 +229,19 @@ object {
     object {
         max-height: 40em;
     }
+
+    #PDF_QuoteBoundingBox{
+        width: 100%;
+    }
+    
+    #PDF_QuoteBoundingBox #PDFviewer{
+        width: 100%;
+    }
+    
+    #PDF_QuoteBoundingBox #quote{
+        font-family: 'Brush Script MT', 'Arial Narrow', ARial, sans-serif;
+        font-size: 50px;
+    }
  
 }
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
  
 <head>
     <meta charset="UTF-8">
@@ -11,16 +11,25 @@
 <body>
     <div class="header">
         <div>
+            <a id="pageTop"></a>
             <h1>Portfolio Katharina Schmitt</h1>
-            <nav>
-                <a href="../Aufgabe1/woche1%20Kopie.html"> Steckbrief </a> <i>|</i>
-                <a href="../Aufgabe2/contact.html"> Kontakt </a> <i>|</i>
-                <a href="../Aufgabe1/Hobbies.html"> Hobbies</a> <i>|</i>
-                <a href="../Aufgabe2/Aufgabe2.html"> Startseite </a> <i></i>
-            </nav>
+            
         </div>
+        
     </div>
- 
+    <nav id="navBar">
+        <div id="home">
+            <a href="../Aufgabe2/Aufgabe2.html"> Startseite </a> <i></i>
+        </div>
+        
+        <a href="../Aufgabe2/SteckbriefAufgabe2.html"> Steckbrief </a> <i>|</i>
+        <a href="../Aufgabe2/contact.html"> Kontakt </a> <i>|</i>
+        <a href="../Aufgabe2/Hobbies.html"> Hobbies</a>
+        
+        <div id="toTop"><a href="#pageTop">zum Anfang</a></div>
+    </nav>
+    
+
     <p>Herzlich Willkommen zu meinem persönlichen Portfolio in dem ihr nun ein paar Dinge sehen könnt in denen ich kreativ tätig war.</p>
     <p class="Texte">Hier findet ihr ein kleines InstaStory lookalike Vorstellungsvideo über mich selbst. </p>
     <video width="480" controls>
@@ -30,59 +39,66 @@
     <p id="TextDigitaleZeichnungen"> Ich zeichne besonders gerne Digital, wo ihr hier einige Eindrücke dafür bekommen könnt. </p>
     <div> Hier ein Einblick in meine digitalen Zeichnungen.</div>
     <br>
-    <img src="https://raw.githubusercontent.com/kschmitt3110/WiSe2020-2021/main/Aufgabe2/IMG_0069.jpeg" alt="DigitaldrawingFlowers" height="400px" width="300px">
-    <img src="https://raw.githubusercontent.com/kschmitt3110/WiSe2020-2021/main/Aufgabe2/IMG_5384.jpg" alt="DigitalDrawingVincent" height="300px" width="200px">
-    <img src="https://raw.githubusercontent.com/kschmitt3110/WiSe2020-2021/main/Aufgabe2/IMG_1905.jpeg" alt="DigitalDrawingCharles" height="400px" width="300px">
+    <img src="https://raw.githubusercontent.com/kschmitt3110/WiSe2020-2021/main/Aufgabe2/IMG_0069.jpeg" alt="DigitaldrawingFlowers" height="400" width="300">
+    <img src="https://raw.githubusercontent.com/kschmitt3110/WiSe2020-2021/main/Aufgabe2/IMG_5384.jpg" alt="DigitalDrawingVincent" height="300" width="200">
+    <img src="https://raw.githubusercontent.com/kschmitt3110/WiSe2020-2021/main/Aufgabe2/IMG_1905.jpeg" alt="DigitalDrawingCharles" height="400" width="300">
     <p class="Texte"> Und noch eine weitere digitale Zeichnung.</p>
-    <object data="lando.pdf" type="application/pdf" width="700px" height="800px">
-        <embed src="lando.pdf" type="application/pdf">
-    </object>
-    <q>Millions of people can draw. Art is whether there is a scream in you wanting to get out in a special way</q>
-    <h1>Lyrics zu meinem Lieblingslied</h1>
-    <i>Gewinner</i>
-    <u>von</u>
-    <b>Clueso</b>
-    <blockquote>An allem was man sagt, an allem was man sagt, ist auch was dran!
-        Egal wer kommt, egal wer geht, egal es kommt nicht darauf an.
-        Ich komm vorbei, du kommst vorbei,
-        Kommt wer vorbei - sind wir nicht da.
-        Leichter als leicht,
-        Geht es vielleicht, leichter als das, was vielleicht war.
-        Ich denk an dich,
-        Denkst du an mich, denkst du an dich - wo fängt es an?
-        Bist du bereit, ist es bereits vorbei - viel später als man kann?
-        <br>
-        <br>
-        Ich glaube nichts, ich glaub an dich,
-        Glaubst du an mich, ich glaub ich auch.
-        Ich frage mich, ich frage dich,
-        Doch frag ich nicht, fragst du dich auch?
-        <br>
-        <br>
-        Ich bin dabei, du bist dabei, wir sind dabei uns zu verlier'n.
-        Ich bin dabei, bist du dabei, bin ich dabei uns zu verlier'n?
-        Ich bin dabei, du bist dabei, wir sind dabei uns zu verlier'n.
-        Ich bin dabei, bist du dabei, bin ich dabei uns zu verlier'n?
-        <br>
-        <br>
-        Leichter als leicht,
-        Geht es vielleicht, leichter als das, was vielleicht war!
-        Leichter als leicht,
-        Das ist nicht weit von hier zu dem, was noch nicht war.
-        Suchst du mich, dann such ich dich, ist die Versuchung groß genug!
-        Ich lass es zu, komm lass es zu, komm lass es uns noch einmal tun!
-        Ich geb' nicht auf,
-        Gehst du mit mir, gehst du mit mir, mit auf uns zu?
-        Fällt dir nichts ein,
-        Komm leg nicht auf, komm reg dich auf und komm zur Ruh.
-        <br>
-        <br>
-        Ich bin dabei du bist dabei, wir sind dabei uns zu verlier'n.
-        Ich bin dabei bist du dabei, bin ich dabei uns zu verlier'n?
-        Ich bin dabei du bist dabei, wir sind dabei uns zu verlier'n.
-        Ich bin dabei bist du dabei, bin ich dabei uns zu verlier'n?
-        Ich bin dabei, du bist dabei, wir sind dabei uns zu verlier'n.</blockquote>
- 
+    <div id="PDF_QuoteBoundingBox">
+        <div id="PDFviewer">
+            <object data="lando.pdf" type="application/pdf" width="700" height="800">
+                <embed src="lando.pdf" type="application/pdf">
+            </object>
+        </div>
+        <div id="quote">
+            <q>Millions of people can draw. Art is whether there is a scream in you wanting to get out in a special way</q>
+        </div>
+    </div>
+    <div>
+        <h1>Lyrics zu meinem Lieblingslied</h1>
+        <i>Gewinner</i>
+        <u>von</u>
+        <b>Clueso</b>
+        <blockquote>An allem was man sagt, an allem was man sagt, ist auch was dran!
+            Egal wer kommt, egal wer geht, egal es kommt nicht darauf an.
+            Ich komm vorbei, du kommst vorbei,
+            Kommt wer vorbei - sind wir nicht da.
+            Leichter als leicht,
+            Geht es vielleicht, leichter als das, was vielleicht war.
+            Ich denk an dich,
+            Denkst du an mich, denkst du an dich - wo fängt es an?
+            Bist du bereit, ist es bereits vorbei - viel später als man kann?
+            <br>
+            <br>
+            Ich glaube nichts, ich glaub an dich,
+            Glaubst du an mich, ich glaub ich auch.
+            Ich frage mich, ich frage dich,
+            Doch frag ich nicht, fragst du dich auch?
+            <br>
+            <br>
+            Ich bin dabei, du bist dabei, wir sind dabei uns zu verlier'n.
+            Ich bin dabei, bist du dabei, bin ich dabei uns zu verlier'n?
+            Ich bin dabei, du bist dabei, wir sind dabei uns zu verlier'n.
+            Ich bin dabei, bist du dabei, bin ich dabei uns zu verlier'n?
+            <br>
+            <br>
+            Leichter als leicht,
+            Geht es vielleicht, leichter als das, was vielleicht war!
+            Leichter als leicht,
+            Das ist nicht weit von hier zu dem, was noch nicht war.
+            Suchst du mich, dann such ich dich, ist die Versuchung groß genug!
+            Ich lass es zu, komm lass es zu, komm lass es uns noch einmal tun!
+            Ich geb' nicht auf,
+            Gehst du mit mir, gehst du mit mir, mit auf uns zu?
+            Fällt dir nichts ein,
+            Komm leg nicht auf, komm reg dich auf und komm zur Ruh.
+            <br>
+            <br>
+            Ich bin dabei du bist dabei, wir sind dabei uns zu verlier'n.
+            Ich bin dabei bist du dabei, bin ich dabei uns zu verlier'n?
+            Ich bin dabei du bist dabei, wir sind dabei uns zu verlier'n.
+            Ich bin dabei bist du dabei, bin ich dabei uns zu verlier'n?
+            Ich bin dabei, du bist dabei, wir sind dabei uns zu verlier'n.</blockquote>
+        </div>
     <div id="beispielbox">
         <p>Was ich besonders am digitalen Zeichnen mag?:</p>
         <ul>
