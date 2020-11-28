@@ -1,0 +1,31 @@
+#bild1 {
+    height: 200px;
+    width: 100px;
+    border: 5px solid red;
+    margin: 30px;
+
+    
+}
+
+#bild2 {
+    height: 200px;
+    width: 100px;
+    border: 5px solid red;
+    margin: 30px;
+
+    
+}
+
+#bild3 {
+    height: 200px;
+    width: 100px;
+    border: 5px solid red;
+    margin: 30px;
+
+    
+}
+
+#flexbox {
+    display: flex;
+    flex-direction: center; 
+}

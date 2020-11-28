@@ -1,0 +1,22 @@
+{
+    "Koepfe": {
+        "Kopf1": {
+            "name": "kopf1",
+            "preis": 30,
+            "farbe": "blond",
+            "bild": ""
+        },
+        "Kopf2": {
+            "name": "kopf2",
+            "preis": 50,
+            "farbe": "braun",
+            "bild": ""
+        },
+        "Kopf3": {
+            "name": "kopf3",
+            "preis": 100,
+            "farbe": "schwarz",
+            "bild": ""
+        }
+    }
+}
