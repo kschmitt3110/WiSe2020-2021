@@ -1,22 +1,64 @@
 {
     "Koepfe": {
         "Kopf1": {
-            "name": "kopf1",
+            "name": "Kopf1",
             "preis": 30,
             "farbe": "blond",
-            "bild": ""
+            "bild": "./kopfblond.png"
         },
         "Kopf2": {
-            "name": "kopf2",
+            "name": "Kopf2",
             "preis": 50,
             "farbe": "braun",
-            "bild": ""
+            "bild": "./kopfbraun.png"
         },
         "Kopf3": {
-            "name": "kopf3",
-            "preis": 100,
+            "name": "Kopf3",
+            "preis": 40,
             "farbe": "schwarz",
-            "bild": ""
+            "bild": "./kopfschwarz.png"
+        }
+    },
+
+    "Oberkoerper": {
+        "Oberkoerper1": {
+            "name": "Oberkoerper1",
+            "preis": 300,
+            "farbe": "rot",
+            "bild": "./oberkoerperrot.png"
+        },
+        "Oberkoerper2": {
+            "name": "Oberkoerper2",
+            "preis": 200,
+            "farbe": "blau",
+            "bild": "./oberkoerperblau.png"
+        },
+        "Oberkoerper3": {
+            "name": "Oberkoerper3",
+            "preis": 100,
+            "farbe": "grün",
+            "bild": "./oberkoerpergruen.png"
+        }
+    },
+
+    "Unterkoerper": {
+        "Unterkoerper1": {
+            "name": "Unterkoerper1",
+            "preis": 100,
+            "farbe": "blau",
+            "bild": "./unterkoerperblau.png"
+        },
+        "Unterkoerper2": {
+            "name": "Unterkoerper2",
+            "preis": 150,
+            "farbe": "weiß",
+            "bild": "./unterkoerperweiss.png"
+        },
+        "Unterkoerper3": {
+            "name": "Unterkoerper3",
+            "preis": 70,
+            "farbe": "schwarz",
+            "bild": "./unterkoerperschwarz.png"
         }
     }
 }

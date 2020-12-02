@@ -1,0 +1,27 @@
+.Rahmen {
+    height: 250px;
+    width: 120px;
+    border: 5px solid red;
+    margin: 30px;
+}
+
+.bilder {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#flexbox {
+    display: flex;
+    flex-direction: center; 
+}
+
+.AuswahlAnzeige {
+    width: 150px;
+    height: 150px;
+}
+
+.AuswahlBild {
+    width: 100%;
+    height: 100%;
+}
