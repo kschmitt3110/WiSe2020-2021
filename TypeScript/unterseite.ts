@@ -14,13 +14,13 @@ iface.send();
 
 cookieZuruecksetzen();
 
-enum anzeigeModus {
-    Koepfe, 
-    Oberkoerper,
-    Unterkoerper
+enum ANZEIGEMODUS {
+    KOEPFE, 
+    OBERKOERPER,
+    UNTERKOERPER
 }
 
-let modus: anzeigeModus = anzeigeModus.Koepfe;
+let modus: ANZEIGEMODUS = ANZEIGEMODUS.KOEPFE;
 
 function cookieZuruecksetzen (): void {
     document.cookie = "kopf= unbekannt";
@@ -46,9 +46,9 @@ function waehleBild3 (): void {
 
 function setzeCookie (bild: string): void {
     
-    if (modus == anzeigeModus.Koepfe) {
+    if (modus == ANZEIGEMODUS.KOEPFE) {
         document.cookie = "kopf=" + bild;
-    } else if (modus == anzeigeModus.Oberkoerper) {
+    } else if (modus == ANZEIGEMODUS.OBERKOERPER) {
         document.cookie = "oberkoerper=" + bild;
     } else {
         document.cookie = "unterkoerper=" + bild;
@@ -74,7 +74,7 @@ document.getElementById("bild2").addEventListener("click", waehleBild2);
 document.getElementById("bild3").addEventListener("click", waehleBild3);
 
 function modusWechselnKopf (): void {
-    modus = anzeigeModus.Koepfe;
+    modus = ANZEIGEMODUS.KOEPFE;
     highlightZuruecksetzen();
 
     document.getElementById("text1").innerHTML = "Name: " + jsonData.Koepfe.Kopf1.name + "</br> Preis: " + jsonData.Koepfe.Kopf1.preis + "</br> Farbe: " + jsonData.Koepfe.Kopf1.farbe;
@@ -96,7 +96,7 @@ function modusWechselnKopf (): void {
 }
 
 function modusWechselnOberkoerper (): void {
-    modus = anzeigeModus.Oberkoerper;
+    modus = ANZEIGEMODUS.OBERKOERPER;
     highlightZuruecksetzen();
 
     document.getElementById("text1").innerHTML = "Name: " + jsonData.Oberkoerper.Oberkoerper1.name + "</br> Preis: " + jsonData.Oberkoerper.Oberkoerper1.preis + "</br> Farbe: " + jsonData.Oberkoerper.Oberkoerper1.farbe;
@@ -117,7 +117,7 @@ function modusWechselnOberkoerper (): void {
 }
 
 function modusWechselnUnterkoerper (): void {
-    modus = anzeigeModus.Unterkoerper;
+    modus = ANZEIGEMODUS.UNTERKOERPER;
     highlightZuruecksetzen();
 
     document.getElementById("text1").innerHTML = "Name: " + jsonData.Unterkoerper.Unterkoerper1.name + "</br> Preis: " + jsonData.Unterkoerper.Unterkoerper1.preis + "</br> Farbe: " + jsonData.Unterkoerper.Unterkoerper1.farbe;
@@ -230,22 +230,24 @@ function aktualisiereAuswahl (): void {
 }
 
 function buttonWeiter (): void {
-    if (modus == anzeigeModus.Koepfe) {
+    if (modus == ANZEIGEMODUS.KOEPFE) {
         modusWechselnOberkoerper();
     }
-    else if (modus == anzeigeModus.Oberkoerper) {
+    else if (modus == ANZEIGEMODUS.OBERKOERPER) {
         modusWechselnUnterkoerper();
     }
-    //else auf Zusammenfassungsseite 
+    else {
+        window.open("./endseite.html", "_self");
+    }
 }
 
 document.getElementById("weiter").addEventListener("click", buttonWeiter);
 
 function buttonZurueck (): void { 
-    if (modus == anzeigeModus.Oberkoerper) {
+    if (modus == ANZEIGEMODUS.OBERKOERPER) {
         modusWechselnKopf();
     }
-    else if (modus == anzeigeModus.Unterkoerper) {
+    else if (modus == ANZEIGEMODUS.UNTERKOERPER) {
         modusWechselnOberkoerper();
     }
 }
