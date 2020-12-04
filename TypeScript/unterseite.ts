@@ -1,6 +1,5 @@
 import {JsonData, Optionsgruppe} from "./data";
 
-//Funktion um  json Datei vom Server zu Laden 
 
 let iface: XMLHttpRequest = new XMLHttpRequest();
 let jsonData: JsonData = null;
