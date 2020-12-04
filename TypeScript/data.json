@@ -1,18 +1,18 @@
 {
     "Koepfe": {
-        "Kopf1": {
+        "Option1": {
             "name": "Kopf1",
             "preis": 30,
             "farbe": "blond",
             "bild": "./bilder/kopfblond.png"
         },
-        "Kopf2": {
+        "Option2": {
             "name": "Kopf2",
             "preis": 50,
             "farbe": "braun",
             "bild": "./bilder/kopfbraun.png"
         },
-        "Kopf3": {
+        "Option3": {
             "name": "Kopf3",
             "preis": 40,
             "farbe": "schwarz",
@@ -21,19 +21,19 @@
     },
 
     "Oberkoerper": {
-        "Oberkoerper1": {
+        "Option1": {
             "name": "Oberkoerper1",
             "preis": 300,
             "farbe": "rot",
             "bild": "./bilder/oberkoerperrot.png"
         },
-        "Oberkoerper2": {
+        "Option2": {
             "name": "Oberkoerper2",
             "preis": 200,
             "farbe": "blau",
             "bild": "./bilder/oberkoerperblau.png"
         },
-        "Oberkoerper3": {
+        "Option3": {
             "name": "Oberkoerper3",
             "preis": 100,
             "farbe": "grün",
@@ -42,19 +42,19 @@
     },
 
     "Unterkoerper": {
-        "Unterkoerper1": {
+        "Option1": {
             "name": "Unterkoerper1",
             "preis": 100,
             "farbe": "blau",
             "bild": "./bilder/unterkoerperblau.png"
         },
-        "Unterkoerper2": {
+        "Option2": {
             "name": "Unterkoerper2",
             "preis": 150,
             "farbe": "weiß",
             "bild": "./bilder/unterkoerperweiss.png"
         },
-        "Unterkoerper3": {
+        "Option3": {
             "name": "Unterkoerper3",
             "preis": 70,
             "farbe": "schwarz",

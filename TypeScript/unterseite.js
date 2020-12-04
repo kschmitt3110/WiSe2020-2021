@@ -35,21 +35,21 @@ function waehleBild3() {
     setzeCookie("bild3");
     highlightBild(document.getElementById("bild3"));
 }
-function setzeCookie(bild) {
+function setzeCookie(_bild) {
     if (modus == ANZEIGEMODUS.KOEPFE) {
-        document.cookie = "kopf=" + bild;
+        document.cookie = "kopf=" + _bild;
     }
     else if (modus == ANZEIGEMODUS.OBERKOERPER) {
-        document.cookie = "oberkoerper=" + bild;
+        document.cookie = "oberkoerper=" + _bild;
     }
     else {
-        document.cookie = "unterkoerper=" + bild;
+        document.cookie = "unterkoerper=" + _bild;
     }
 }
-function highlightBild(bilder) {
+function highlightBild(_bilder) {
     // Setze Rahmenfarbe auf rot
     highlightZuruecksetzen();
-    bilder.style.borderColor = "black";
+    _bilder.style.borderColor = "black";
     aktualisiereAuswahl();
 }
 function highlightZuruecksetzen() {
@@ -60,62 +60,36 @@ function highlightZuruecksetzen() {
 document.getElementById("bild1").addEventListener("click", waehleBild1);
 document.getElementById("bild2").addEventListener("click", waehleBild2);
 document.getElementById("bild3").addEventListener("click", waehleBild3);
-function modusWechselnKopf() {
-    modus = ANZEIGEMODUS.KOEPFE;
+function modusWechseln(_setzeAufModus) {
+    modus = _setzeAufModus;
     highlightZuruecksetzen();
-    document.getElementById("text1").innerHTML = "Name: " + jsonData.Koepfe.Kopf1.name + "</br> Preis: " + jsonData.Koepfe.Kopf1.preis + "</br> Farbe: " + jsonData.Koepfe.Kopf1.farbe;
-    document.getElementById("text2").innerHTML = "Name: " + jsonData.Koepfe.Kopf2.name + "</br> Preis: " + jsonData.Koepfe.Kopf2.preis + "</br> Farbe: " + jsonData.Koepfe.Kopf2.farbe;
-    document.getElementById("text3").innerHTML = "Name: " + jsonData.Koepfe.Kopf3.name + "</br> Preis: " + jsonData.Koepfe.Kopf3.preis + "</br> Farbe: " + jsonData.Koepfe.Kopf3.farbe;
+    let optionen;
+    if (modus == ANZEIGEMODUS.KOEPFE)
+        optionen = jsonData.Koepfe;
+    else if (modus == ANZEIGEMODUS.OBERKOERPER)
+        optionen = jsonData.Oberkoerper;
+    else
+        optionen = jsonData.Unterkoerper;
+    document.getElementById("text1").innerHTML = "Name: " + optionen.Option1.name + "</br> Preis: " + optionen.Option1.preis + "</br> Farbe: " + optionen.Option1.farbe;
+    document.getElementById("text2").innerHTML = "Name: " + optionen.Option2.name + "</br> Preis: " + optionen.Option2.preis + "</br> Farbe: " + optionen.Option2.farbe;
+    document.getElementById("text3").innerHTML = "Name: " + optionen.Option3.name + "</br> Preis: " + optionen.Option3.preis + "</br> Farbe: " + optionen.Option3.farbe;
     let image1 = document.getElementById("image1");
     let image2 = document.getElementById("image2");
     let image3 = document.getElementById("image3");
-    image1.src = jsonData.Koepfe.Kopf1.bild;
-    image2.src = jsonData.Koepfe.Kopf2.bild;
-    image3.src = jsonData.Koepfe.Kopf3.bild;
-    document.getElementById("ueberschrift1").innerHTML = jsonData.Koepfe.Kopf1.name;
-    document.getElementById("ueberschrift2").innerHTML = jsonData.Koepfe.Kopf2.name;
-    document.getElementById("ueberschrift3").innerHTML = jsonData.Koepfe.Kopf3.name;
+    image1.src = optionen.Option1.bild;
+    image2.src = optionen.Option2.bild;
+    image3.src = optionen.Option3.bild;
+    document.getElementById("ueberschrift1").innerHTML = optionen.Option1.name;
+    document.getElementById("ueberschrift2").innerHTML = optionen.Option2.name;
+    document.getElementById("ueberschrift3").innerHTML = optionen.Option3.name;
 }
-function modusWechselnOberkoerper() {
-    modus = ANZEIGEMODUS.OBERKOERPER;
-    highlightZuruecksetzen();
-    document.getElementById("text1").innerHTML = "Name: " + jsonData.Oberkoerper.Oberkoerper1.name + "</br> Preis: " + jsonData.Oberkoerper.Oberkoerper1.preis + "</br> Farbe: " + jsonData.Oberkoerper.Oberkoerper1.farbe;
-    document.getElementById("text2").innerHTML = "Name: " + jsonData.Oberkoerper.Oberkoerper2.name + "</br> Preis: " + jsonData.Oberkoerper.Oberkoerper2.preis + "</br> Farbe: " + jsonData.Oberkoerper.Oberkoerper2.farbe;
-    document.getElementById("text3").innerHTML = "Name: " + jsonData.Oberkoerper.Oberkoerper3.name + "</br> Preis: " + jsonData.Oberkoerper.Oberkoerper3.preis + "</br> Farbe: " + jsonData.Oberkoerper.Oberkoerper3.farbe;
-    let image1 = document.getElementById("image1");
-    let image2 = document.getElementById("image2");
-    let image3 = document.getElementById("image3");
-    image1.src = jsonData.Oberkoerper.Oberkoerper1.bild;
-    image2.src = jsonData.Oberkoerper.Oberkoerper2.bild;
-    image3.src = jsonData.Oberkoerper.Oberkoerper3.bild;
-    document.getElementById("ueberschrift1").innerHTML = jsonData.Oberkoerper.Oberkoerper1.name;
-    document.getElementById("ueberschrift2").innerHTML = jsonData.Oberkoerper.Oberkoerper2.name;
-    document.getElementById("ueberschrift3").innerHTML = jsonData.Oberkoerper.Oberkoerper3.name;
-}
-function modusWechselnUnterkoerper() {
-    modus = ANZEIGEMODUS.UNTERKOERPER;
-    highlightZuruecksetzen();
-    document.getElementById("text1").innerHTML = "Name: " + jsonData.Unterkoerper.Unterkoerper1.name + "</br> Preis: " + jsonData.Unterkoerper.Unterkoerper1.preis + "</br> Farbe: " + jsonData.Unterkoerper.Unterkoerper1.farbe;
-    document.getElementById("text2").innerHTML = "Name: " + jsonData.Unterkoerper.Unterkoerper2.name + "</br> Preis: " + jsonData.Unterkoerper.Unterkoerper2.preis + "</br> Farbe: " + jsonData.Unterkoerper.Unterkoerper2.farbe;
-    document.getElementById("text3").innerHTML = "Name: " + jsonData.Unterkoerper.Unterkoerper3.name + "</br> Preis: " + jsonData.Unterkoerper.Unterkoerper3.preis + "</br> Farbe: " + jsonData.Unterkoerper.Unterkoerper3.farbe;
-    let image1 = document.getElementById("image1");
-    let image2 = document.getElementById("image2");
-    let image3 = document.getElementById("image3");
-    image1.src = jsonData.Unterkoerper.Unterkoerper1.bild;
-    image2.src = jsonData.Unterkoerper.Unterkoerper2.bild;
-    image3.src = jsonData.Unterkoerper.Unterkoerper3.bild;
-    document.getElementById("ueberschrift1").innerHTML = jsonData.Unterkoerper.Unterkoerper1.name;
-    document.getElementById("ueberschrift2").innerHTML = jsonData.Unterkoerper.Unterkoerper2.name;
-    document.getElementById("ueberschrift3").innerHTML = jsonData.Unterkoerper.Unterkoerper3.name;
-}
-document.getElementById("AuswahlKopf").addEventListener("click", modusWechselnKopf);
-document.getElementById("AuswahlOberkoerper").addEventListener("click", modusWechselnOberkoerper);
-document.getElementById("AuswahlUnterkoerper").addEventListener("click", modusWechselnUnterkoerper);
+document.getElementById("AuswahlKopf").addEventListener("click", () => modusWechseln(ANZEIGEMODUS.KOEPFE));
+document.getElementById("AuswahlOberkoerper").addEventListener("click", () => modusWechseln(ANZEIGEMODUS.OBERKOERPER));
+document.getElementById("AuswahlUnterkoerper").addEventListener("click", () => modusWechseln(ANZEIGEMODUS.UNTERKOERPER));
 function aktualisiereAuswahl() {
     let cookieString;
     cookieString = document.cookie;
     let cookieBestandteile = cookieString.split(";");
-    console.log(cookieBestandteile);
     let auswahlKopf;
     let auswahlOberkoerper;
     let auswahlUnterkoerper;
@@ -135,60 +109,45 @@ function aktualisiereAuswahl() {
         }
     }
     let bildKopf;
-    if (auswahlKopf == "bild1") {
-        bildKopf = jsonData.Koepfe.Kopf1.bild;
-    }
-    else if (auswahlKopf == "bild2") {
-        bildKopf = jsonData.Koepfe.Kopf2.bild;
-    }
-    else if (auswahlKopf == "bild3") {
-        bildKopf = jsonData.Koepfe.Kopf3.bild;
-    }
-    else {
-        bildKopf = "";
-    }
+    if (auswahlKopf == "bild1")
+        bildKopf = jsonData.Koepfe.Option1.bild;
+    else if (auswahlKopf == "bild2")
+        bildKopf = jsonData.Koepfe.Option2.bild;
+    else if (auswahlKopf == "bild3")
+        bildKopf = jsonData.Koepfe.Option3.bild;
+    else
+        bildKopf = "./bilder/auswahl.png";
     let vorschauKopf = document.getElementById("AuswahlKopf");
     vorschauKopf.src = bildKopf;
     let bildOberkoerper;
-    if (auswahlOberkoerper == "bild1") {
-        bildOberkoerper = jsonData.Oberkoerper.Oberkoerper1.bild;
-    }
-    else if (auswahlOberkoerper == "bild2") {
-        bildOberkoerper = jsonData.Oberkoerper.Oberkoerper2.bild;
-    }
-    else if (auswahlOberkoerper == "bild3") {
-        bildOberkoerper = jsonData.Oberkoerper.Oberkoerper3.bild;
-    }
-    else {
-        bildOberkoerper = "";
-    }
+    if (auswahlOberkoerper == "bild1")
+        bildOberkoerper = jsonData.Oberkoerper.Option1.bild;
+    else if (auswahlOberkoerper == "bild2")
+        bildOberkoerper = jsonData.Oberkoerper.Option2.bild;
+    else if (auswahlOberkoerper == "bild3")
+        bildOberkoerper = jsonData.Oberkoerper.Option3.bild;
+    else
+        bildOberkoerper = "./bilder/auswahl.png";
     let vorschauOberkoerper = document.getElementById("AuswahlOberkoerper");
     vorschauOberkoerper.src = bildOberkoerper;
     let bildUnterkoerper;
-    if (auswahlUnterkoerper == "bild1") {
-        bildUnterkoerper = jsonData.Unterkoerper.Unterkoerper1.bild;
-    }
-    else if (auswahlUnterkoerper == "bild2") {
-        bildUnterkoerper = jsonData.Unterkoerper.Unterkoerper2.bild;
-    }
-    else if (auswahlUnterkoerper == "bild3") {
-        bildUnterkoerper = jsonData.Unterkoerper.Unterkoerper3.bild;
-    }
-    else {
-        bildUnterkoerper = "";
-    }
+    if (auswahlUnterkoerper == "bild1")
+        bildUnterkoerper = jsonData.Unterkoerper.Option1.bild;
+    else if (auswahlUnterkoerper == "bild2")
+        bildUnterkoerper = jsonData.Unterkoerper.Option2.bild;
+    else if (auswahlUnterkoerper == "bild3")
+        bildUnterkoerper = jsonData.Unterkoerper.Option3.bild;
+    else
+        bildUnterkoerper = "./bilder/auswahl.png";
     let vorschauUnterkoerper = document.getElementById("AuswahlUnterkoerper");
     vorschauUnterkoerper.src = bildUnterkoerper;
-    console.log(auswahlUnterkoerper);
-    console.log(auswahlKopf);
-    console.log(auswahlOberkoerper);
 }
 function buttonWeiter() {
     if (modus == ANZEIGEMODUS.KOEPFE) {
-        modusWechselnOberkoerper();
+        modusWechseln(ANZEIGEMODUS.OBERKOERPER);
     }
     else if (modus == ANZEIGEMODUS.OBERKOERPER) {
-        modusWechselnUnterkoerper();
+        modusWechseln(ANZEIGEMODUS.UNTERKOERPER);
     }
     else {
         window.open("./endseite.html", "_self");
@@ -197,16 +156,16 @@ function buttonWeiter() {
 document.getElementById("weiter").addEventListener("click", buttonWeiter);
 function buttonZurueck() {
     if (modus == ANZEIGEMODUS.OBERKOERPER) {
-        modusWechselnKopf();
+        modusWechseln(ANZEIGEMODUS.KOEPFE);
     }
     else if (modus == ANZEIGEMODUS.UNTERKOERPER) {
-        modusWechselnOberkoerper();
+        modusWechseln(ANZEIGEMODUS.OBERKOERPER);
     }
 }
 document.getElementById("zurueck").addEventListener("click", buttonZurueck);
 function buttonAnfang() {
     cookieZuruecksetzen();
-    modusWechselnKopf();
+    modusWechseln(ANZEIGEMODUS.KOEPFE);
     aktualisiereAuswahl();
 }
 document.getElementById("anfang").addEventListener("click", buttonAnfang);
