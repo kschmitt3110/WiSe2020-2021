@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//Funktion um  json Datei vom Server zu Laden 
 let iface = new XMLHttpRequest();
 let jsonData = null;
 iface.onreadystatechange = function () {
