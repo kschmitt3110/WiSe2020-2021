@@ -1,0 +1,19 @@
+{
+  "name": "katharinasserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Server/beispielserver.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kschmitt3110/WiSe2020-2021.git"
+  },
+  "author": "katharina schmitt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kschmitt3110/WiSe2020-2021/issues"
+  },
+  "homepage": "https://github.com/kschmitt3110/WiSe2020-2021#readme"
+}
