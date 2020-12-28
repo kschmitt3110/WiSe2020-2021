@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="serveranfrage.js"></script>
 </head>
 <body>
-    <form action="https://gis-example.herokuapp.com" method="get">
+    <form id="formElem" onSubmit="return sendeDaten()">
         <table>
             <tr> 
                 <td>Vorname: </td>
