@@ -19,8 +19,26 @@ var P_3_1Server;
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8"); //Setzen der Header für die Serverantwort
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        _response.write(_request.url); //Schreibe die Request Url in der Antwort 
-        console.log(_request.url);
+        if (_request.url.startsWith("/html")) {
+            let anfrageDaten = _request.url;
+            anfrageDaten = anfrageDaten.replace("/html/?", "");
+            let einzelfelder;
+            einzelfelder = anfrageDaten.split("&");
+            let antwort = "";
+            let i;
+            for (i = 0; i < einzelfelder.length; i++) {
+                let schluessel = einzelfelder[i].split("=")[0];
+                let wert = einzelfelder[i].split("=")[1];
+                antwort = antwort + "<i>" + schluessel + "</i>" + ":" + "<u>" + wert + "</u>" + "<br>";
+            }
+            _response.write(antwort);
+        }
+        else if (_request.url.startsWith("/json")) {
+        }
+        else {
+            _response.write(_request.url); //Schreibe die Request Url in der Antwort 
+            console.log(_request.url);
+        }
         _response.end(); //Fertig, sende die Antwort 
     }
 })(P_3_1Server = exports.P_3_1Server || (exports.P_3_1Server = {}));
