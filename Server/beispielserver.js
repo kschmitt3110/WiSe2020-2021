@@ -34,6 +34,21 @@ var P_3_1Server;
             _response.write(antwort);
         }
         else if (_request.url.startsWith("/json")) {
+            let speichern = _request.url;
+            speichern = speichern.replace("/json/?", "");
+            let felder;
+            felder = speichern.split("&");
+            console.log(felder);
+            let daten;
+            daten = {};
+            let i;
+            for (i = 0; i < felder.length; i++) {
+                let schluessel = felder[i].split("=")[0];
+                let wert = felder[i].split("=")[1];
+                daten[schluessel] = wert;
+            }
+            console.log(daten);
+            _response.write(JSON.stringify(daten));
         }
         else {
             _response.write(_request.url); //Schreibe die Request Url in der Antwort 

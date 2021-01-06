@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formElem" onSubmit="return sendeDaten()">
+        <table>
+            <tr>
+                <td>E-Mail:</td>
+                <td><input id="einlogMail" type="email" name="mailadresse" value="" size="30" maxlength="50" required></td>
+            </tr>
+            <tr>
+                <td>Passwort:</td>
+                <td><input id="einlogPasswort" type="password" name="passwort" value="" size="30" minlength="6" maxlength="20" required></td>
+            </tr>
+    </table>
+    <input id="einlogen" type="button" name="registrieren" value="Einlogen"> 
+    
+    
+    </form>
+    <div id="serverantwort"></div>
+    <script src="./nutzereinlogen.js"></script>
+</body>
+</html>
