@@ -2,7 +2,7 @@ async function einlogen (): Promise<void> {
     let email: string = (<HTMLInputElement>document.getElementById("einlogMail")).value; 
     let passwort: string = (<HTMLInputElement>document.getElementById("einlogPasswort")).value;
     
-    let urlAnfang: string = "https://katharinasserver.herokuapp.com/einlogen";
+    let urlAnfang: string = "http://katharinasserver.herokuapp.com/einlogen";
     let url: string = urlAnfang + '&mailadresse=' + email + '&passwort=' + passwort;
     
 

@@ -1,6 +1,6 @@
 "use strict";
 async function ladeBenutzer() {
-    let url = "https://katharinasserver.herokuapp.com/benutzerladen";
+    let url = "http://katharinasserver.herokuapp.com/benutzerladen";
     let response = await fetch(url);
     let result = await response.text();
     result = result.replaceAll("%20", " ");

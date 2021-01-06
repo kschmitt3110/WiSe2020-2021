@@ -5,7 +5,7 @@ async function sendeDaten (): Promise<void> {
     let adresse: string = (<HTMLInputElement>document.getElementById("adresse")).value;
     let passwort: string = (<HTMLInputElement>document.getElementById("passwort")).value;
     
-    let urlAnfang: string = "https://katharinasserver.herokuapp.com/erstelleaccount";
+    let urlAnfang: string = "http://katharinasserver.herokuapp.com/erstelleaccount";
     let url: string = urlAnfang + '/?vorname=' + vorname + '&nachname=' + nachname + '&mailadresse=' + email + '&adresse=' + adresse + '&passwort=' + passwort;
     
 
