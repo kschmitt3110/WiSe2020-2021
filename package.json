@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kschmitt3110/WiSe2020-2021/issues"
   },
-  "homepage": "https://github.com/kschmitt3110/WiSe2020-2021#readme"
+  "homepage": "https://github.com/kschmitt3110/WiSe2020-2021#readme",
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
 }
