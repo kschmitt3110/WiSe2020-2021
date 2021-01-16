@@ -2,7 +2,7 @@
 async function einlogen() {
     let email = document.getElementById("einlogMail").value;
     let passwort = document.getElementById("einlogPasswort").value;
-    let urlAnfang = "http://katharinasserver.herokuapp.com/einlogen";
+    let urlAnfang = "https://katharinasserver.herokuapp.com/einlogen";
     let url = urlAnfang + '&mailadresse=' + email + '&passwort=' + passwort;
     let response = await fetch(url);
     let result = await response.text();

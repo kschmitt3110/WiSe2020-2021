@@ -1,0 +1,40 @@
+{
+    "objekte":[
+        {
+            "objektname": "Objekt1blabla",
+            "preis": 5
+        },
+        {
+            "objektname": "Objekt2blabla",
+            "preis": 3
+        },
+        {
+            "objektname": "Objekt3blabla",
+            "preis": 10
+        },
+        {
+            "objektname": "Objekt4blabla",
+            "preis": 6
+        },
+        {
+            "objektname": "Objekt5blabla",
+            "preis": 20
+        },
+        {
+            "objektname": "Objekt6blabla",
+            "preis": 7
+        },
+        {
+            "objektname": "Objekt7blabla",
+            "preis": 15
+        },
+        {
+            "objektname": "Objekt8blabla",
+            "preis": 12
+        },
+        {
+            "objektname": "Objekt9blabla",
+            "preis": 30
+        }
+    ]
+}
