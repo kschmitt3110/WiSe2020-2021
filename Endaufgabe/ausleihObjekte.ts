@@ -1,5 +1,5 @@
 export interface ausleihObjekte {
-    [index: number]: ausleihObjekt;
+    objekte: ausleihObjekt[];
   }
   export interface ausleihObjekt {
     objektname: string;

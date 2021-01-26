@@ -1,39 +1,39 @@
 {
     "objekte":[
         {
-            "objektname": "Objekt1blabla",
+            "objektname": "Buch",
             "preis": 5
         },
         {
-            "objektname": "Objekt2blabla",
+            "objektname": "Zeitschrifz",
             "preis": 3
         },
         {
-            "objektname": "Objekt3blabla",
+            "objektname": "Waffeleisen",
             "preis": 10
         },
         {
-            "objektname": "Objekt4blabla",
+            "objektname": "Bollerwagen",
             "preis": 6
         },
         {
-            "objektname": "Objekt5blabla",
+            "objektname": "Notebook",
             "preis": 20
         },
         {
-            "objektname": "Objekt6blabla",
+            "objektname": "Taschenrechner",
             "preis": 7
         },
         {
-            "objektname": "Objekt7blabla",
+            "objektname": "Decke",
             "preis": 15
         },
         {
-            "objektname": "Objekt8blabla",
+            "objektname": "Toaster",
             "preis": 12
         },
         {
-            "objektname": "Objekt9blabla",
+            "objektname": "Fahrrad",
             "preis": 30
         }
     ]

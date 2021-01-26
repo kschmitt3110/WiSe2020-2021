@@ -1,17 +1,18 @@
 import {ausleihObjekte, ausleihObjekt} from "./ausleihObjekte";
 
-
+let Objekte: ausleihObjekte;
 
 initialiserung();
 
-/*enum ZUSTAND {
+const enum ZUSTAND {
 VERFUEGBAR = "VERFUEGBAR",
 RESERVIERT = "RESERVIERT",
 AUSGELIEHEN = "AUSGELIEHEN",
-}*/
+NICHTVERFUEGBAR = "NICHTVERFUEGBAR",
+}
 
 async function initialiserung (): Promise<void> {
-   /* sessionStorage.setItem("objekt1", ZUSTAND.VERFUEGBAR);
+    sessionStorage.setItem("objekt1", ZUSTAND.VERFUEGBAR);
     sessionStorage.setItem("objekt2", ZUSTAND.VERFUEGBAR);
     sessionStorage.setItem("objekt3", ZUSTAND.VERFUEGBAR);
     sessionStorage.setItem("objekt4", ZUSTAND.VERFUEGBAR);
@@ -19,18 +20,34 @@ async function initialiserung (): Promise<void> {
     sessionStorage.setItem("objekt6", ZUSTAND.VERFUEGBAR);
     sessionStorage.setItem("objekt7", ZUSTAND.VERFUEGBAR);
     sessionStorage.setItem("objekt8", ZUSTAND.VERFUEGBAR);
-    sessionStorage.setItem("objekt9", ZUSTAND.VERFUEGBAR);*/
+    sessionStorage.setItem("objekt9", ZUSTAND.VERFUEGBAR);
 
     for (let i: number = 1; i <= 9; i++ ) { 
         sessionStorage.setItem("objekt" + i + "ausgewaehlt", "false");
     }
     let response: Response = await fetch("./ausleihObjekte.json");
-    let Objekte: ausleihObjekte = await response.json();
+    Objekte = await response.json();
 
     for (let i: number = 1; i <= 9; i++) {
-        let ausleihObjektObjekt: ausleihObjekt = Objekte[i - 1];
+        let ausleihObjektObjekt: ausleihObjekt = Objekte.objekte[i-1];
         let ausleihObjektname: string = ausleihObjektObjekt.objektname;
-        document.getElementById("objekt" + i).innerHTML = ausleihObjektname;
+        let ausleihPreis: number = ausleihObjektObjekt.preis;
+        document.getElementById("objekt" + i).innerHTML = ausleihObjektname + " preis:" + ausleihPreis;
+    }
+
+    for (let i: number = 1; i <= 9; i++){
+        let ausleihObjektObjekt: ausleihObjekt = Objekte.objekte[i-1];
+        let ausleihObjektname: string = ausleihObjektObjekt.objektname;
+        let url: string = "http://localhost:8100/verfuegbar";
+        response = await fetch (url + "/?" + "objekt=" + ausleihObjektname);
+
+        let responseText: string = await response.text();
+        if (responseText.includes("verfuegbar")){
+            sessionStorage.setItem("objekt" + i, ZUSTAND.VERFUEGBAR);
+        }
+        else {
+            sessionStorage.setItem("objekt" + i, ZUSTAND.NICHTVERFUEGBAR);
+        }
     }
 }
 
@@ -58,6 +75,10 @@ document.getElementById("objekt9").addEventListener("click",()=>(highlightObjekt
 function applyHighlights (): void {
     
     for (let i: number = 1; i <= 9; i++ ) {
+        if (sessionStorage.getItem("objekt" + i) == ZUSTAND.NICHTVERFUEGBAR){
+            document.getElementById("objekt" + i).style.backgroundColor = "blue";
+        }
+        
         if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") { 
             document.getElementById("objekt" + i).style.backgroundColor = "red";
         }
@@ -65,4 +86,19 @@ function applyHighlights (): void {
             document.getElementById("objekt" + i).style.backgroundColor = "white";
         }
     }
+    ausleihKostenBerechnen();
 }
+
+function ausleihKostenBerechnen (): void {
+   let gesamtkosten: number = 0;
+    for(let i: number = 1; i <= 9; i++){
+        if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") { 
+            let ausleihObjektObjekt: ausleihObjekt = Objekte.objekte[i-1];
+            let ausleihPreis: number = ausleihObjektObjekt.preis;
+            gesamtkosten += ausleihPreis;
+        }
+    }
+
+    document.getElementById("kosten").innerHTML = "Ausleihkosten:" + gesamtkosten;
+}
+

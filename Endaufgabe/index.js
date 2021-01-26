@@ -1,30 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+let Objekte;
 initialiserung();
-/*enum ZUSTAND {
-VERFUEGBAR = "VERFUEGBAR",
-RESERVIERT = "RESERVIERT",
-AUSGELIEHEN = "AUSGELIEHEN",
-}*/
 async function initialiserung() {
-    /* sessionStorage.setItem("objekt1", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt2", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt3", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt4", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt5", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt6", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt7", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt8", ZUSTAND.VERFUEGBAR);
-     sessionStorage.setItem("objekt9", ZUSTAND.VERFUEGBAR);*/
+    sessionStorage.setItem("objekt1", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt2", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt3", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt4", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt5", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt6", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt7", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt8", "VERFUEGBAR" /* VERFUEGBAR */);
+    sessionStorage.setItem("objekt9", "VERFUEGBAR" /* VERFUEGBAR */);
     for (let i = 1; i <= 9; i++) {
         sessionStorage.setItem("objekt" + i + "ausgewaehlt", "false");
     }
     let response = await fetch("./ausleihObjekte.json");
-    let Objekte = await response.json();
+    Objekte = await response.json();
     for (let i = 1; i <= 9; i++) {
-        let ausleihObjektObjekt = Objekte[i - 1];
+        let ausleihObjektObjekt = Objekte.objekte[i - 1];
         let ausleihObjektname = ausleihObjektObjekt.objektname;
-        document.getElementById("objekt" + i).innerHTML = ausleihObjektname;
+        let ausleihPreis = ausleihObjektObjekt.preis;
+        document.getElementById("objekt" + i).innerHTML = ausleihObjektname + " preis:" + ausleihPreis;
+    }
+    for (let i = 1; i <= 9; i++) {
+        let ausleihObjektObjekt = Objekte.objekte[i - 1];
+        let ausleihObjektname = ausleihObjektObjekt.objektname;
+        let url = "http://localhost:8100/verfuegbar";
+        response = await fetch(url + "/?" + "objekt=" + ausleihObjektname);
+        let responseText = await response.text();
+        if (responseText.includes("verfuegbar")) {
+            sessionStorage.setItem("objekt" + i, "VERFUEGBAR" /* VERFUEGBAR */);
+        }
+        else {
+            sessionStorage.setItem("objekt" + i, "NICHTVERFUEGBAR" /* NICHTVERFUEGBAR */);
+        }
     }
 }
 function highlightObjekt(index) {
@@ -48,6 +58,9 @@ document.getElementById("objekt8").addEventListener("click", () => (highlightObj
 document.getElementById("objekt9").addEventListener("click", () => (highlightObjekt(9)));
 function applyHighlights() {
     for (let i = 1; i <= 9; i++) {
+        if (sessionStorage.getItem("objekt" + i) == "NICHTVERFUEGBAR" /* NICHTVERFUEGBAR */) {
+            document.getElementById("objekt" + i).style.backgroundColor = "blue";
+        }
         if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") {
             document.getElementById("objekt" + i).style.backgroundColor = "red";
         }
@@ -55,5 +68,17 @@ function applyHighlights() {
             document.getElementById("objekt" + i).style.backgroundColor = "white";
         }
     }
+    ausleihKostenBerechnen();
+}
+function ausleihKostenBerechnen() {
+    let gesamtkosten = 0;
+    for (let i = 1; i <= 9; i++) {
+        if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") {
+            let ausleihObjektObjekt = Objekte.objekte[i - 1];
+            let ausleihPreis = ausleihObjektObjekt.preis;
+            gesamtkosten += ausleihPreis;
+        }
+    }
+    document.getElementById("kosten").innerHTML = "Ausleihkosten:" + gesamtkosten;
 }
 //# sourceMappingURL=index.js.map
