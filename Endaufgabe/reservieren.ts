@@ -57,7 +57,7 @@ async function reservierenServer (): Promise<void> {
     let result: string = await response.text();
     result = result.replaceAll("%20", " ");
     alert(result);
-
+    window.open("./index.html","_self");
 }
 
 document.getElementById("reserviertReservieren").addEventListener("click", reservierenServer);

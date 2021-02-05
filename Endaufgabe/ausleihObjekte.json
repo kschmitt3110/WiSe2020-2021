@@ -3,9 +3,10 @@
         {
             "objektname": "Buch",
             "preis": 5
+            "bild": "./kopfblond.png"
         },
         {
-            "objektname": "Zeitschrifz",
+            "objektname": "Zeitschrift",
             "preis": 3
         },
         {

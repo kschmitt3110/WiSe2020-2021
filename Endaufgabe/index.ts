@@ -49,15 +49,22 @@ async function initialiserung (): Promise<void> {
             sessionStorage.setItem("objekt" + i, ZUSTAND.NICHTVERFUEGBAR);
         }
     }
+
+    applyHighlights();
 }
 
 function highlightObjekt (index: number): void {
-    var zustand: string = sessionStorage.getItem("objekt" + index + "ausgewaehlt");
+    if (sessionStorage.getItem("objekt" + index) == ZUSTAND.VERFUEGBAR){ 
+        var zustand: string = sessionStorage.getItem("objekt" + index + "ausgewaehlt");
 
-    if (zustand == "true") {
-        sessionStorage.setItem("objekt" + index + "ausgewaehlt", "false");
-    } else {
-        sessionStorage.setItem("objekt" + index + "ausgewaehlt", "true");
+        if (zustand == "true") {
+            sessionStorage.setItem("objekt" + index + "ausgewaehlt", "false");
+        } else {
+            sessionStorage.setItem("objekt" + index + "ausgewaehlt", "true");
+        }
+    }
+    else {
+        alert("Der ausgewählte Gegenstand ist nicht verfügbar!");
     }
 
     applyHighlights();
@@ -79,12 +86,16 @@ function applyHighlights (): void {
             document.getElementById("objekt" + i).style.backgroundColor = "blue";
         }
         
-        if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") { 
-            document.getElementById("objekt" + i).style.backgroundColor = "red";
+        else { 
+            if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") { 
+                document.getElementById("objekt" + i).style.backgroundColor = "red";
+            }
+        
+            else {
+                document.getElementById("objekt" + i).style.backgroundColor = "white";
+            }
         }
-        else {
-            document.getElementById("objekt" + i).style.backgroundColor = "white";
-        }
+        
     }
     ausleihKostenBerechnen();
 }

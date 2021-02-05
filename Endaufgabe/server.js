@@ -47,9 +47,19 @@ var server;
             let verfuegbar = _request.url;
             verfuegbar = verfuegbar.replace("/verfuegbar/?", "");
             let objektname = verfuegbar.split("=")[1];
-            _response.write(pruefeVerfuegbarkeit(objektname));
+            _response.write(await pruefeVerfuegbarkeit(objektname));
         }
-        else if (_request.url.startsWith("/einlogen")) {
+        else if (_request.url.startsWith("/zurueckgeben")) {
+            let url = _request.url;
+            url = url.replace("/zurueckgeben/?", "");
+            let objektname = url.split("=")[1];
+            await setzeVerfuegbar(objektname);
+        }
+        else if (_request.url.startsWith("/ausgeliehen")) {
+            let url = _request.url;
+            url = url.replace("/ausgeliehen/?", "");
+            let objektname = url.split("=")[1];
+            await setzeAusgeliehen(objektname);
         }
         else {
             _response.write(_request.url); //Schreibe die Request Url in der Antwort 
@@ -62,7 +72,7 @@ var server;
         await mongoclient.connect();
         let astaverleih = mongoclient.db("test").collection("astaverleih");
         let datensatz;
-        datensatz = await astaverleih.find({ "objektname": objektname });
+        datensatz = astaverleih.find({ "objektname": objektname });
         if (await datensatz.count() == 0) {
             return "zustand=verfuegbar";
         }
@@ -72,6 +82,27 @@ var server;
             await datensatz.forEach(function (document) { zustand = document.zustand; person = document.ausleihname; });
             return "zustand=" + zustand + "&person=" + person;
         }
+    }
+    async function setzeAusgeliehen(objektname) {
+        let mongoclient = new Mongo.MongoClient("mongodb+srv://rina3110:geheim123@katharina.hlejk.mongodb.net/test?retryWrites=true&w=majority");
+        await mongoclient.connect();
+        let astaverleih = mongoclient.db("test").collection("astaverleih");
+        let datensatzReservierung;
+        datensatzReservierung = await astaverleih.find({ "objektname": objektname });
+        let reservierName;
+        await datensatzReservierung.forEach(function (document) { reservierName = document.ausleihname; });
+        await setzeVerfuegbar(objektname);
+        let datensatz = new Serverdaten();
+        datensatz.ausleihname = reservierName;
+        datensatz.objektname = objektname;
+        datensatz.zustand = "ausgeliehen";
+        astaverleih.insertOne(datensatz);
+    }
+    async function setzeVerfuegbar(objektname) {
+        let mongoclient = new Mongo.MongoClient("mongodb+srv://rina3110:geheim123@katharina.hlejk.mongodb.net/test?retryWrites=true&w=majority");
+        await mongoclient.connect();
+        let astaverleih = mongoclient.db("test").collection("astaverleih");
+        astaverleih.deleteOne({ "objektname": objektname });
     }
 })(server = exports.server || (exports.server = {}));
 //# sourceMappingURL=server.js.map

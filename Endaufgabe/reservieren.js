@@ -46,6 +46,7 @@ async function reservierenServer() {
     let result = await response.text();
     result = result.replaceAll("%20", " ");
     alert(result);
+    window.open("./index.html", "_self");
 }
 document.getElementById("reserviertReservieren").addEventListener("click", reservierenServer);
 //# sourceMappingURL=reservieren.js.map

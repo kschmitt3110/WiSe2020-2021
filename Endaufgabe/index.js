@@ -36,14 +36,20 @@ async function initialiserung() {
             sessionStorage.setItem("objekt" + i, "NICHTVERFUEGBAR" /* NICHTVERFUEGBAR */);
         }
     }
+    applyHighlights();
 }
 function highlightObjekt(index) {
-    var zustand = sessionStorage.getItem("objekt" + index + "ausgewaehlt");
-    if (zustand == "true") {
-        sessionStorage.setItem("objekt" + index + "ausgewaehlt", "false");
+    if (sessionStorage.getItem("objekt" + index) == "VERFUEGBAR" /* VERFUEGBAR */) {
+        var zustand = sessionStorage.getItem("objekt" + index + "ausgewaehlt");
+        if (zustand == "true") {
+            sessionStorage.setItem("objekt" + index + "ausgewaehlt", "false");
+        }
+        else {
+            sessionStorage.setItem("objekt" + index + "ausgewaehlt", "true");
+        }
     }
     else {
-        sessionStorage.setItem("objekt" + index + "ausgewaehlt", "true");
+        alert("Der ausgewählte Gegenstand ist nicht verfügbar!");
     }
     applyHighlights();
 }
@@ -61,11 +67,13 @@ function applyHighlights() {
         if (sessionStorage.getItem("objekt" + i) == "NICHTVERFUEGBAR" /* NICHTVERFUEGBAR */) {
             document.getElementById("objekt" + i).style.backgroundColor = "blue";
         }
-        if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") {
-            document.getElementById("objekt" + i).style.backgroundColor = "red";
-        }
         else {
-            document.getElementById("objekt" + i).style.backgroundColor = "white";
+            if (sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true") {
+                document.getElementById("objekt" + i).style.backgroundColor = "red";
+            }
+            else {
+                document.getElementById("objekt" + i).style.backgroundColor = "white";
+            }
         }
     }
     ausleihKostenBerechnen();
