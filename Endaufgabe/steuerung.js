@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let Objekte;
 initialiserung();
 async function initialiserung() {
-    let response = await fetch("./ausleihObjekte.json");
+    let response = await fetch("http://localhost:8100/objekte");
     Objekte = await response.json();
     for (let i = 1; i <= 9; i++) {
         let ausleihObjektObjekt = Objekte.objekte[i - 1];

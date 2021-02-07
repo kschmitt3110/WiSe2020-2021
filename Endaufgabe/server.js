@@ -61,6 +61,9 @@ var server;
             let objektname = url.split("=")[1];
             await setzeAusgeliehen(objektname);
         }
+        else if (_request.url.startsWith("/objekte")) {
+            _response.write(await objekteJson());
+        }
         else {
             _response.write(_request.url); //Schreibe die Request Url in der Antwort 
             console.log(_request.url);
@@ -103,6 +106,18 @@ var server;
         await mongoclient.connect();
         let astaverleih = mongoclient.db("test").collection("astaverleih");
         astaverleih.deleteOne({ "objektname": objektname });
+    }
+    async function objekteJson() {
+        let mongoclient = new Mongo.MongoClient("mongodb+srv://rina3110:geheim123@katharina.hlejk.mongodb.net/test?retryWrites=true&w=majority");
+        await mongoclient.connect();
+        let astaverleih = mongoclient.db("test").collection("astaverleihobjekte");
+        let ausleihObjektCursor;
+        ausleihObjektCursor = astaverleih.find({});
+        let jsonString = "{\"objekte\":[";
+        console.log("len:" + await ausleihObjektCursor.count());
+        await ausleihObjektCursor.forEach(function (doc) { jsonString += JSON.stringify(doc) + ","; });
+        jsonString = jsonString.slice(0, -1) + "]}";
+        return jsonString;
     }
 })(server = exports.server || (exports.server = {}));
 //# sourceMappingURL=server.js.map

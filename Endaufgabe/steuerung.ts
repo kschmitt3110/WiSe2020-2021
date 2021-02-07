@@ -3,7 +3,7 @@ let Objekte: ausleihObjekte;
 initialiserung();
 
 async function initialiserung(): Promise<void>{
-    let response: Response = await fetch("./ausleihObjekte.json");
+    let response: Response = await fetch("http://localhost:8100/objekte");
     Objekte = await response.json();
 
     for (let i: number = 1; i <= 9; i++) {

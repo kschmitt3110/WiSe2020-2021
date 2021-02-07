@@ -1,5 +1,6 @@
 import * as Http from "http"; //Importiert Funktionalitäten für Hypertext Transfer Protocol 
 import * as Mongo from "mongodb";
+import {ausleihObjekt} from "./ausleihObjekte";
 import {serverdatenInterface} from "./serverdatenInterface";
 
 export namespace server { //Beginn des Namespaces
@@ -71,6 +72,8 @@ export namespace server { //Beginn des Namespaces
 
             let objektname:string = url.split("=")[1];
             await setzeAusgeliehen(objektname);
+        } else if (_request.url.startsWith("/objekte")){
+            _response.write(await objekteJson());
         }
         else {
             _response.write(_request.url); //Schreibe die Request Url in der Antwort 
@@ -123,6 +126,21 @@ export namespace server { //Beginn des Namespaces
         await mongoclient.connect();
         let astaverleih: Mongo.Collection = mongoclient.db("test").collection("astaverleih");
         astaverleih.deleteOne({"objektname": objektname});
+    }
+
+    async function objekteJson(): Promise<String>{
+        let mongoclient: Mongo.MongoClient = new Mongo.MongoClient("mongodb+srv://rina3110:geheim123@katharina.hlejk.mongodb.net/test?retryWrites=true&w=majority");
+        await mongoclient.connect();
+        let astaverleih: Mongo.Collection = mongoclient.db("test").collection("astaverleihobjekte");
+        let ausleihObjektCursor: Mongo.Cursor<ausleihObjekt>;
+
+        ausleihObjektCursor = astaverleih.find({});
+
+        let jsonString: String = "{\"objekte\":[";
+        console.log("len:" + await ausleihObjektCursor.count());
+        await ausleihObjektCursor.forEach(function(doc:ausleihObjekt){jsonString+=JSON.stringify(doc) + ","});
+        jsonString = jsonString.slice(0,-1) + "]}";
+        return jsonString;
     }
     
 }

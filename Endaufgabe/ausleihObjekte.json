@@ -2,40 +2,57 @@
     "objekte":[
         {
             "objektname": "Buch",
-            "preis": 5
-            "bild": "./kopfblond.png"
+            "preis": 5,
+            "bild": "./buch.png",
+            "beschreibung": "Leiht euch ein Buch über die Grundlagen der Interaktiven Systeme aus."
         },
         {
             "objektname": "Zeitschrift",
-            "preis": 3
+            "preis": 3,
+            "bild": "./zeitschrift.png",
+            "beschreibung": "Leiht euch eine Zeitschrift über das aktuelle Geschehen aus."
         },
         {
             "objektname": "Waffeleisen",
-            "preis": 10
+            "preis": 10,
+            "bild": "./waffeleisen.png",
+            "beschreibung": "Leiht euch ein Waffeleisen für die Pausen aus."
         },
         {
             "objektname": "Bollerwagen",
-            "preis": 6
+            "preis": 6,
+            "bild": "./bollerwagen.png",
+            "beschreibung": "Leiht euch ein Bollerwagen für Ausflüge mit Freunden aus."
         },
         {
             "objektname": "Notebook",
-            "preis": 20
+            "preis": 20,
+            "bild": "./notebook.png",
+            "beschreibung": "Leiht euch ein Notebook für die nächste Programmieraufgabe aus."
         },
         {
             "objektname": "Taschenrechner",
-            "preis": 7
+            "preis": 7,
+            "bild": "./taschenrechner.png",
+            "beschreibung": "Leiht euch einen Taschenrechner für eure Matheklausuren aus."
         },
         {
             "objektname": "Decke",
-            "preis": 15
+            "preis": 15,
+            "bild": "./decke.png",
+            "beschreibung": "Leiht euch eine Decke für die kalten Tage aus."
         },
         {
             "objektname": "Toaster",
-            "preis": 12
+            "preis": 12,
+            "bild": "./toaster.png",
+            "beschreibung": "Leiht euch einen Toaster aus."
         },
         {
             "objektname": "Fahrrad",
-            "preis": 30
+            "preis": 30,
+            "bild": "./fahrrad.png",
+            "beschreibung": "Leiht euch ein Fahrrad für Ausflüge aus."
         }
     ]
 }

@@ -32,7 +32,7 @@ function ausleihKostenBerechnen (): void {
 }
 
 async function initialisieren (): Promise<void> {
-    let response: Response = await fetch("./ausleihObjekte.json");
+    let response: Response = await fetch("http://localhost:8100/objekte");
     Objekte = await response.json();
     auswahlAnzeigen();
 }

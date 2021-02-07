@@ -1,0 +1,73 @@
+body {
+    text-align: center;
+    background-color: aquamarine;
+    font-family: cursive;
+}
+
+h1 {
+    color: white;
+    text-shadow: 1px 1px 5px black,
+                1px -1px 5px black,
+                -1px 1px 5px black,
+                -1px -1px 5px black;
+    font-family: cursive;
+}
+
+.ausleihBild {
+    width: 400px;
+    height: 400px;
+}
+
+.objekte{
+    padding: 0;
+    margin: 40px;
+}
+
+#kosten{
+    background: radial-gradient(ellipse closest-side, white 60%, aquamarine);
+    margin:0px;
+    padding:40px;
+    display:inline-block;
+    font-size: larger;
+}
+
+#reservieren{
+    margin-top:20px;
+    margin-bottom: 40px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:50px;
+    padding-right: 50px;
+}
+
+a {
+    margin:40px;
+    padding:20px;
+    background: radial-gradient(ellipse closest-side, white 80%, aquamarine);
+}
+
+#link{
+    margin: 40px;
+    padding: 20px;
+}
+
+#reserviertArtikel{
+    background: white;
+    display: inline-block;
+}
+
+#ausleihKosten{
+    background: white;
+    display: inline-block;
+}
+
+#reservierungBox{
+    background: white;
+    display: inline-block;
+}
+
+#verleihTabelle {
+    display: inline-block;
+    padding:0;
+    margin-bottom:40px;
+}

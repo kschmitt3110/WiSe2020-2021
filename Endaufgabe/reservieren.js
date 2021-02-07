@@ -26,7 +26,7 @@ function ausleihKostenBerechnen() {
     document.getElementById("ausleihKosten").innerHTML = "Ausleihkosten:" + gesamtkosten;
 }
 async function initialisieren() {
-    let response = await fetch("./ausleihObjekte.json");
+    let response = await fetch("http://localhost:8100/objekte");
     Objekte = await response.json();
     auswahlAnzeigen();
 }

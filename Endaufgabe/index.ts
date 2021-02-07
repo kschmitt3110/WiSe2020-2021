@@ -25,14 +25,16 @@ async function initialiserung (): Promise<void> {
     for (let i: number = 1; i <= 9; i++ ) { 
         sessionStorage.setItem("objekt" + i + "ausgewaehlt", "false");
     }
-    let response: Response = await fetch("./ausleihObjekte.json");
+    let response: Response = await fetch("http://localhost:8100/objekte");
     Objekte = await response.json();
 
     for (let i: number = 1; i <= 9; i++) {
         let ausleihObjektObjekt: ausleihObjekt = Objekte.objekte[i-1];
         let ausleihObjektname: string = ausleihObjektObjekt.objektname;
         let ausleihPreis: number = ausleihObjektObjekt.preis;
-        document.getElementById("objekt" + i).innerHTML = ausleihObjektname + " preis:" + ausleihPreis;
+        let ausleihBeschreibug: string = ausleihObjektObjekt.beschreibung;
+        let ausleibBild: string = ausleihObjektObjekt.bild;
+        document.getElementById("objekt" + i).innerHTML = "<img class=ausleihBild src=" + ausleibBild + "> <br>" + ausleihObjektname + " preis:" + ausleihPreis + "<br>" + ausleihBeschreibug;
     }
 
     for (let i: number = 1; i <= 9; i++){
@@ -78,12 +80,28 @@ document.getElementById("objekt6").addEventListener("click",()=>(highlightObjekt
 document.getElementById("objekt7").addEventListener("click",()=>(highlightObjekt(7)));
 document.getElementById("objekt8").addEventListener("click",()=>(highlightObjekt(8)));
 document.getElementById("objekt9").addEventListener("click",()=>(highlightObjekt(9)));
+document.getElementById("reservieren").addEventListener("click",reservieren);
+
+function reservieren():void{
+    let objektAusgewaehlt: boolean = false;
+    for(let i = 0; i<=9; i++){
+        if(sessionStorage.getItem("objekt" + i + "ausgewaehlt") == "true"){
+            objektAusgewaehlt = true;
+            break;
+        }
+    }
+    if(objektAusgewaehlt){
+        window.open("./reservieren.html", "_self");
+    }else{
+        alert("Sie haben nichts zum Reservieren ausgewählt");
+    }
+}
 
 function applyHighlights (): void {
     
     for (let i: number = 1; i <= 9; i++ ) {
         if (sessionStorage.getItem("objekt" + i) == ZUSTAND.NICHTVERFUEGBAR){
-            document.getElementById("objekt" + i).style.backgroundColor = "blue";
+            document.getElementById("objekt" + i).style.backgroundColor = "DimGray";
         }
         
         else { 
@@ -92,7 +110,7 @@ function applyHighlights (): void {
             }
         
             else {
-                document.getElementById("objekt" + i).style.backgroundColor = "white";
+                document.getElementById("objekt" + i).style.backgroundColor = "transparent";
             }
         }
         
