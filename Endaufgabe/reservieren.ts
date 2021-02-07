@@ -32,13 +32,13 @@ function ausleihKostenBerechnen (): void {
 }
 
 async function initialisieren (): Promise<void> {
-    let response: Response = await fetch("http://localhost:8100/objekte");
+    let response: Response = await fetch("https://katharinasserver.herokuapp.com/objekte");
     Objekte = await response.json();
     auswahlAnzeigen();
 }
 
 async function reservierenServer (): Promise<void> {
-    let urlAnfang: string = "http://localhost:8100/reservieren";
+    let urlAnfang: string = "https://katharinasserver.herokuapp.com/reservieren";
     let name: string = (<HTMLInputElement>document.getElementById("reserviertName")).value; 
 
     let serveranfrage: string = "name=" + name + "&";

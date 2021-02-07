@@ -15,7 +15,7 @@ async function initialiserung() {
     for (let i = 1; i <= 9; i++) {
         sessionStorage.setItem("objekt" + i + "ausgewaehlt", "false");
     }
-    let response = await fetch("http://localhost:8100/objekte");
+    let response = await fetch("https://katharinasserver.herokuapp.com/objekte");
     Objekte = await response.json();
     for (let i = 1; i <= 9; i++) {
         let ausleihObjektObjekt = Objekte.objekte[i - 1];
@@ -28,7 +28,7 @@ async function initialiserung() {
     for (let i = 1; i <= 9; i++) {
         let ausleihObjektObjekt = Objekte.objekte[i - 1];
         let ausleihObjektname = ausleihObjektObjekt.objektname;
-        let url = "http://localhost:8100/verfuegbar";
+        let url = "https://katharinasserver.herokuapp.com/verfuegbar";
         response = await fetch(url + "/?" + "objekt=" + ausleihObjektname);
         let responseText = await response.text();
         if (responseText.includes("verfuegbar")) {

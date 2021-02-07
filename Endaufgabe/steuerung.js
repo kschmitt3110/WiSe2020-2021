@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let Objekte;
 initialiserung();
 async function initialiserung() {
-    let response = await fetch("http://localhost:8100/objekte");
+    let response = await fetch("https://katharinasserver.herokuapp.com/objekte");
     Objekte = await response.json();
     for (let i = 1; i <= 9; i++) {
         let ausleihObjektObjekt = Objekte.objekte[i - 1];
@@ -14,7 +14,7 @@ async function initialiserung() {
     for (let i = 1; i <= 9; i++) {
         let ausleihObjektObjekt = Objekte.objekte[i - 1];
         let ausleihObjektname = ausleihObjektObjekt.objektname;
-        let url = "http://localhost:8100/verfuegbar";
+        let url = "https://katharinasserver.herokuapp.com/verfuegbar";
         response = await fetch(url + "/?" + "objekt=" + ausleihObjektname);
         let responseText = await response.text();
         if (responseText.includes("verfuegbar")) {
@@ -45,14 +45,14 @@ async function initialiserung() {
 async function ausgeliehen(index) {
     let objektname;
     objektname = Objekte.objekte[index - 1].objektname;
-    let urlAnfang = "http://localhost:8100/ausgeliehen";
+    let urlAnfang = "https://katharinasserver.herokuapp.com/ausgeliehen";
     await fetch(urlAnfang + "/?" + "objektname=" + objektname);
     initialiserung();
 }
 async function verfuegbar(index) {
     let objektname;
     objektname = Objekte.objekte[index - 1].objektname;
-    let urlAnfang = "http://localhost:8100/zurueckgeben";
+    let urlAnfang = "https://katharinasserver.herokuapp.com/zurueckgeben";
     await fetch(urlAnfang + "/?" + "objektname=" + objektname);
     initialiserung();
 }

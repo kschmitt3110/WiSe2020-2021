@@ -25,7 +25,7 @@ async function initialiserung (): Promise<void> {
     for (let i: number = 1; i <= 9; i++ ) { 
         sessionStorage.setItem("objekt" + i + "ausgewaehlt", "false");
     }
-    let response: Response = await fetch("http://localhost:8100/objekte");
+    let response: Response = await fetch("https://katharinasserver.herokuapp.com/objekte");
     Objekte = await response.json();
 
     for (let i: number = 1; i <= 9; i++) {
@@ -40,7 +40,7 @@ async function initialiserung (): Promise<void> {
     for (let i: number = 1; i <= 9; i++){
         let ausleihObjektObjekt: ausleihObjekt = Objekte.objekte[i-1];
         let ausleihObjektname: string = ausleihObjektObjekt.objektname;
-        let url: string = "http://localhost:8100/verfuegbar";
+        let url: string = "https://katharinasserver.herokuapp.com/verfuegbar";
         response = await fetch (url + "/?" + "objekt=" + ausleihObjektname);
 
         let responseText: string = await response.text();

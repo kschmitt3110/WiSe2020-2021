@@ -26,12 +26,12 @@ function ausleihKostenBerechnen() {
     document.getElementById("ausleihKosten").innerHTML = "Ausleihkosten:" + gesamtkosten;
 }
 async function initialisieren() {
-    let response = await fetch("http://localhost:8100/objekte");
+    let response = await fetch("https://katharinasserver.herokuapp.com/objekte");
     Objekte = await response.json();
     auswahlAnzeigen();
 }
 async function reservierenServer() {
-    let urlAnfang = "http://localhost:8100/reservieren";
+    let urlAnfang = "https://katharinasserver.herokuapp.com/reservieren";
     let name = document.getElementById("reserviertName").value;
     let serveranfrage = "name=" + name + "&";
     for (let i = 1; i <= 9; i++) {
