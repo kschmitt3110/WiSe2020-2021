@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node Server/abgabe/datenbankserver.js"
+    "start": "node Endaufgabe/server.js"
   },
   "repository": {
     "type": "git",
