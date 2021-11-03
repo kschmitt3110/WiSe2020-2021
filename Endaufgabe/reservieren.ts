@@ -1,10 +1,11 @@
+//Seite nur nach reservieren mind. 1 artikel
 import {ausleihObjekte, ausleihObjekt} from "./ausleihObjekte";
 
 let Objekte: ausleihObjekte;
 
 initialisieren();
 
-function auswahlAnzeigen (): void {
+function auswahlAnzeigen (): void { 
     let anzeigen: string = "";
 
     for (let i: number = 1; i <= 9; i++ ) {
